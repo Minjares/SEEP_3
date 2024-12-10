@@ -2,6 +2,7 @@
     import { page } from '$app/stores';
     import { goto } from '$app/navigation';
     import { derived } from 'svelte/store';
+    import { denyAutoMark, acceptAutoMark } from '../../../../api/courseworkAPI.js'; // Correct relative path
 
     const coursework = derived(page, ($page) => ({
         id: $page.params.courseworkId,
@@ -17,12 +18,16 @@
     }));
 
     function rejectAutomarker() {
-        console.log('Feedback submitted:');
+        console.log('Submitting rejection for automarker...');
+        denyAutoMark(moduleId, courseworkId);
+        console.log('Feedback submitted: Automarker marks rejected');
         goto('/dashboard');
     }
 
     function acceptAutomarker() {
-        console.log('Marked as reviewed');
+        console.log('Submitting acceptance for automarker...');
+        acceptAutoMark(moduleId, courseworkId);
+        console.log('Marked as reviewed: Automarker marks accepted');
         goto('/dashboard');
     }
 

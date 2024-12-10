@@ -18,6 +18,14 @@ export const submitData = async (data) => {
  * There should be a refresh button on the show coursework page 
  * that will run the command to show all courseworks that need to be reviewed
  * @returns {Promise<Array>} - Array of unfairly marked courseworks.
+ * Format of output that will need to display on dashboard
+ * output.append({
+                    "coursework_id": coursework_id,
+                    "status": status,
+                    "coursework_marks": coursework_marks,
+                    "autochecker_marks": autochecker_marks,
+                    "autochecker_comments": autochecker_comments
+                })
  */
 export const evaluateCourseworks = async () => {
     try {
