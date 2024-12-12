@@ -1,5 +1,5 @@
 import sqlite3
-from pdfscanner import extract_text_from_pdf
+from src.pdfscanner import extract_text_from_pdf
 
 def db_conn():
     # Open and return a connection to the database

@@ -2,8 +2,8 @@ from fastapi import FastAPI, Request, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import Response
 from prometheus_client import Counter, Histogram, generate_latest
-from .dbfunctions import evaluate_coursework, remain_marks, change_marks
-from llm import process_all_courseworks
+from src.dbfunctions import evaluate_coursework, remain_marks, change_marks
+from src.llm import process_all_courseworks
 import logging
 from typing import List
 

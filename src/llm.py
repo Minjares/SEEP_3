@@ -9,7 +9,7 @@ from transformers import AutoTokenizer, AutoConfig
 import numpy as np
 from scipy.special import softmax
 from concurrent.futures import ThreadPoolExecutor
-from dbfunctions import *
+from src.dbfunctions import *
 import os
 
 OPENAI_API_KEY = os.getenv('OPENAI_API_KEY', 'default-invalid-key')
