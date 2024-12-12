@@ -1,12 +1,13 @@
-import apiClient from './axiosConfig';
+import axiosClient from "../interfaces/axiosClient";
+
 
 /**
  * Get 2 input bars that is linked to the button which will submit module_id and marking_scheme_id
  * data should contain array [module_id, marking_scheme_id]
  */
-export const submitData = async (data) => {
+export const submitData = async (data: any) => {
     try {
-        const response = await axios.post('/submit', data);
+        const response = await axiosClient.post('/submit', data);
         return response.data; // Optional, depends on the backend response
     } catch (error) {
         console.error('Error during submit API call:', error);
@@ -21,7 +22,7 @@ export const submitData = async (data) => {
  */
 export const evaluateCourseworks = async () => {
     try {
-        const response = await apiClient.post(`/dashboard/evaluate`);
+        const response = await axiosClient.post(`/dashboard/evaluate`);
         console.log('Evaluated courseworks:', response.data);
         return response.data;
     } catch (error) {
@@ -36,9 +37,9 @@ export const evaluateCourseworks = async () => {
  * @param {string} courseworkId - The ID of the coursework to update.
  * @returns {Promise<void>}
  */
-export const acceptAutoMark = async (moduleId, courseworkId) => {
+export const acceptAutoMark = async (moduleId : any, courseworkId :  any) => {
     try {
-        await apiClient.post(`${moduleId}/${courseworkId}/acceptautomark`);
+        await axiosClient.post(`${moduleId}/${courseworkId}/acceptautomark`);
         console.log('Accept autochecker marks.');
     } catch (error) {
         console.error('Error accepting autochecker marks:', error);
@@ -52,9 +53,9 @@ export const acceptAutoMark = async (moduleId, courseworkId) => {
  * @param {string} courseworkId - The ID of the coursework to update.
  * @returns {Promise<void>}
  */
-export const denyAutoMark = async (moduleId, courseworkId) => {
+export const denyAutoMark = async (moduleId : any, courseworkId : any) => {
     try {
-        await apiClient.post(`${moduleId}/${courseworkId}/denyautomark`);
+        await axiosClient.post(`${moduleId}/${courseworkId}/denyautomark`);
         console.log('Deny autochecker marks.');
     } catch (error) {
         console.error('Error denying autochecker marks:', error);
