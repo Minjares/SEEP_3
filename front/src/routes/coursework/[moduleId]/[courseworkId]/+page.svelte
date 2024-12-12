@@ -13,7 +13,7 @@
             auto: 52
         },
         status: "Needs Review",
-        feedback: "This is a hardcoded example of English coursework feedback. Make sure to focus on improving the structure and clarity of your arguments."
+        feedback: "Feedback"
     }));
 
     function rejectAutomarker() {
